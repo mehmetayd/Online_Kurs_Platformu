@@ -1,0 +1,102 @@
+﻿@using Online_Kurs_Platformu.Models
+@model Online_Kurs_Platformu.Models.RegisterKursModel
+@{
+	ViewBag.Title = "Index";
+}
+
+@{
+	Layout = "~/Views/Shared/Personel_Layout.cshtml";
+}
+
+<head>
+	<link rel="stylesheet" href="~/css/register.css" />
+</head>
+
+
+<body>
+	<div class="row registerKurs">
+		@using (Html.BeginForm("NewKurs", "Register"))
+		{
+			<div class="col">
+				<h1 class="uni">Online Kurs Platformu Kurs Kayıt</h1>
+				<div class="row align-items-center">
+					<div class="col">
+						@*<div class="Login">  @Html.LabelFor(a => a.BolumId, new { @class = "Login"})</div>*@
+						<p class="Login">Kategori</p>
+					</div>
+				</div>
+
+				<div class="row align-items-center mb-3">
+					<div class="col">
+						<div>
+							@Html.DropDownListFor(m => m.Kurs.KategoriId, Model.Kategoriler.Select(b => new SelectListItem(){
+						Text = b.Ad,
+						Value= b.Id.ToString()
+						}),new {@class ="btn btn-outline-warning dropdown-toggle btn-block"})
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col">
+						<div class="Login">Kurs Adı</div>
+					</div>
+				</div>
+
+				<div class="row align-items-center mb-3">
+					<div class="col">
+						<div> @Html.TextBoxFor(a => a.Kurs.Ad, new { @class = "form-control" })</div>
+					</div>
+				</div>
+
+
+				<div class="row align-items-center">
+					<div class="col">
+						<div class="Login">Kurs Videosu</div>
+					</div>
+				</div>
+
+				<div class="row align-items-center mb-3">
+					<div class="col">
+						<div> @Html.TextBoxFor(a => a.Kurs.VideoId, new { @class = "form-control" })</div>
+					</div>
+				</div>
+
+
+				<div class="row align-items-center">
+					<div class="col">
+						<div class="Login">Kurs Fiyatı</div>
+					</div>
+				</div>
+
+				<div class="row align-items-center mb-3">
+					<div class="col">
+						<div> @Html.TextBoxFor(a => a.Kurs.KursFiyat, new { @class = "form-control" })</div>
+					</div>
+				</div>
+
+
+				<div class="row align-items-center">
+					<div class="col">
+						<div class="Login">Kurs Açıklaması</div>
+					</div>
+				</div>
+
+				<div class="row align-items-center mb-3">
+					<div class="col">
+						<div> @Html.TextAreaFor(a => a.Kurs.Aciklama, new { @class = "form-control" })</div>
+					</div>
+				</div>
+
+
+				<div class="row mt-5">
+					<div class="col d-flex align-items-center justify-content-center">
+						<input type="submit" value="Register" class="button1" />
+						@*<a class="nav-link baş" href="@Url.Action("Index","Personel")">Ana sayfaya geri dön</a>*@
+					</div>
+				</div>
+				<br>
+			</div>
+		}
+	</div>
+</body>

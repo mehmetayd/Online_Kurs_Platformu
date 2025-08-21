@@ -1,0 +1,71 @@
+﻿@using Microsoft.AspNetCore.Http
+@using Online_Kurs_Platformu.Models
+
+@model Online_Kurs_Platformu.Models.KursListesi
+<!DOCTYPE html>
+<html>
+<head>
+
+	<link rel="icon" type="Düzce Logo Online Kurs.png">
+
+	<link rel="stylesheet" href="~/css/KursKayit.css" />
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
+</head>
+
+
+<body>
+	<div>
+		<div class="container">
+			<div class="row mt-5">
+				<div class="col d-flex justify-content-center align-items-center">
+					<h1>Kurs Seçim</h1>
+				</div>
+			</div>
+
+			<div class="row bakiyeContainer">
+				<div clasas="col mx-auto text-center">
+					<h4>Mevcut Bakiyeniz: </h4>
+				</div>
+				<div clasas="col mx-auto text-center">
+					<h1>@Model.toplamBakiye()</h1>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row">
+			@foreach (var row in Model.list)
+			{
+				row.Total = Model.toplamBakiye();
+
+				<div class="col-12 col-md-6 videoCard">
+					<div class="card mb-4 shadow-sm ">
+						<iframe class="video" src="https://www.youtube.com/embed/@row.VideoId" frameborder="0" allowfullscreen></iframe>
+						<div class="card-body">
+							<p class="card-text">@row.Aciklama</p>
+							<div class="d-flex justify-content-between align-items-center">
+								<div>
+									@using (Html.BeginForm("KursKayit", "KursKayit", row, FormMethod.Post)) // new { kayit = new DersKayit(){Id = row.Id}, dersler = Model }, FormMethod.Post))
+									{
+										<button class="btn btn-outline-danger">@(row.KayitDurumu ? "İade Et" : "Satın Al")</button>
+									}
+								</div>
+								<div>
+									<small class="text-muted bakiyeLabel">Kurs Fiyatı: </small>
+									<small class="text-muted bakiye">@row.KursFiyat ₺</small>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			}
+		</div>
+
+	</div>
+	</div>
+</body>
+</html>

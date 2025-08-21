@@ -1,0 +1,41 @@
+﻿.videoCard {
+    height: auto;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.card {
+    height: 100%;
+}
+
+.video {
+    height: auto;
+    width: 100%;
+    min-height: 300px;
+}
+
+.card-body {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    min-height: 200px;
+}
+
+.bakiyeContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+}
+
+.bakiyeLabel {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.bakiye {
+    font-size: 18px;
+    font-weight: 600;
+}
