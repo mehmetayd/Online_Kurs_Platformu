@@ -28,6 +28,7 @@ namespace Online_Kurs_Platformu
             {
                 options.IdleTimeout = TimeSpan.FromMinutes(1);
             });
+            
             // Add framework services.
             services.AddMvc(a => a.EnableEndpointRouting = false);
         }
