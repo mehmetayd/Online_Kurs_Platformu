@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\Online_Kurs_Platformu.props" />
-</Project>
