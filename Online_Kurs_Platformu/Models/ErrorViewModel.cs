@@ -1,6 +1,4 @@
-using System;
-
-namespace Online_Kurs_Platformu.Models
+namespace OnlineCourse.UI.Models
 {
     public class ErrorViewModel
     {
